@@ -1,14 +1,15 @@
 // Libs
-import React, { Component } from 'react';
-import { render } from 'react-dom';
+import React, { Component } from 'react'
+import { render } from 'react-dom'
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 
 // CSS
-import './css/style.css';
+import './css/style.css'
 
 // Component
 class GuestList extends Component {
   constructor() {
-    super(...arguments);
+    super(...arguments)
     this.state = {
       names: [
         { name: 'Joel' },
@@ -22,16 +23,16 @@ class GuestList extends Component {
   handleChange(event) {
     if(event.key == 'Enter') {
       let newName = { name: event.target.value }
-      let newNames = this.state.names.concat(newName);
-      event.target.value = '';
-      this.setState({ names: newNames });
+      let newNames = this.state.names.concat(newName)
+      event.target.value = ''
+      this.setState({ names: newNames })
     }
   }
   
   handleRemove(i) {
-    var newNames = this.state.names;
-    newNames.splice(i, 1);
-    this.setState({ names: newNames });
+    var newNames = this.state.names
+    newNames.splice(i, 1)
+    this.setState({ names: newNames })
   }
   
   render() {    
@@ -40,7 +41,7 @@ class GuestList extends Component {
         {name.name}
         <button onClick={this.handleRemove.bind(this, i)}>Remove</button>
       </li>
-    ));
+    ))
     
     return (
       <div className="guest-list">
@@ -52,11 +53,11 @@ class GuestList extends Component {
         
         </ul>  
       </div>
-    );
+    )
   }
 }
 
 render(
   <GuestList />, 
   document.getElementById('root')
-);
+)
